@@ -1,5 +1,8 @@
 package com.example.wli5_countbook;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by ${WeiLi5} on ${12}.
  */
@@ -16,7 +19,9 @@ public class Counter {
 
         this.initialValue = initialValue;
         this.currentValue = initialValue;
-        this.date = date;
+        SimpleDateFormat simpleFormat= new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate=simpleFormat.format(new Date());
+        this.date = formattedDate;
     }
 
     public Counter(String name, int value, String comment) {
@@ -25,12 +30,34 @@ public class Counter {
         this.initialValue = value;
         this.currentValue = value;
         this.comment=comment;
-        this.date = date;
+        SimpleDateFormat simpleFormat= new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate=simpleFormat.format(new Date());
+        this.date = formattedDate;
     }
 
-    //unfinish
+    //https://stackoverflow.com/questions/12575990/calendar-date-to-yyyy-mm-dd-format-in-java
     public void setDate() {
-        this.date = date;
+        SimpleDateFormat simpleFormat= new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate=simpleFormat.format(new Date());
+        this.date = formattedDate;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setInitialValue(int initialValue){
+        this.initialValue=initialValue;
+        setDate();
+    }
+
+    public void setCurrentValue(int currentValue){
+        this.currentValue=currentValue;
+        setDate();
+    }
+
+    public void setComment(String comment){
+        this.comment=comment;
     }
 
     public void incrementCount() {
@@ -39,7 +66,8 @@ public class Counter {
     }
 
     public void decrementCount() {
-        this.currentValue = this.currentValue - 1;
+        if (currentValue >= 1)
+            this.currentValue = this.currentValue - 1;
         setDate();
     }
 
@@ -48,9 +76,16 @@ public class Counter {
         setDate();
     }
 
-    public void setComment(String newComment){
-        this.comment=newComment;
-    }
+
+    public String getName() {return name;}
+
+    public int getInitialValue() {return initialValue;}
+
+    public int getCurrentValue() { return currentValue;}
+
+    public String getDate() {return date;}
+
+    public String getComment() {return comment;}
 
 
 }

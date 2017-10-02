@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.wli5_countbook">
+    package="com.example.wli5_countbook"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:node="replace"
+    tools:replace="allowBackup, label"
+    android:allowBackup="false"
+    android:label="wli5_CountBook">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="wli5-CountBook"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -16,7 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".addCounterActivity"></activity>
+        <activity android:name=".addCounterActivity"
+            android:label="wli5-CountBook"></activity>
+        <activity android:name=".editCounterActivity"
+            android:label="wli5-CountBook"></activity>
     </application>
 
 </manifest>
